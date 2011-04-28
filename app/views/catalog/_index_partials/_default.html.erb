@@ -1,0 +1,17 @@
+<%# default partial to display solr document fields in catalog index view -%>
+<% index_field_names.each do |solr_fname| -%>
+  <td>
+    <% if document.get solr_fname %>
+
+        <% if solr_fname == 'title_t' %>
+          <%= link_to document['title_t'].first, :controller => "catalog", :action => "show", 
+                :id => document.get('id').gsub(/^druid:/, '')%>
+	      <% elsif solr_fname == 'system_create_dt' || solr_fname == 'requestDatetime_t' %>
+	          <%= format_search_results_timestamp(document.get(solr_fname)) %>
+        <% else %>
+	        <%= h document.get(solr_fname) %>
+        <% end %>
+
+    <% end -%>
+  </td>
+<% end -%>

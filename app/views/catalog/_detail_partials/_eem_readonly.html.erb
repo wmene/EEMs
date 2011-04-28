@@ -1,0 +1,38 @@
+<h1 class="mainTitle"><%= eem_title_heading %></h1>      
+
+<dl class="details">
+	<dt>Id :</dt><dd><%= @document[:id].to_s %></dd>    
+
+	<dt>Catalog key :</dt><dd><%= get_catkey() %></dd>
+
+	<dt>PURL :</dt><dd></dd>    
+
+	<dt>Found at this site :</dt>
+	<dd><%= link_to @document[:sourceUrl_t].to_s,  @document[:sourceUrl_t].to_s, {:target => '_blank'} %></dd>
+
+	<dt>Language :</dt>
+	<dd><%= get_language_name(@document[:language_t].first.to_s) %></dd>
+
+	<dt>Author :</dt>
+	<dd><%= render :partial => 'catalog/_show_partials/creator_name', :locals => {:document => @document} %></dd>
+
+	<dt>Direct link to file :</dt>
+	<dd><%= link_to print_url_decoded,  print_parts_field('url'), {:id => 'link_url', :target => '_blank'} %></dd>
+
+	<dt>Local copy of file :</dt>
+	<dd><%= link_to get_local_filename(),  get_local_file_path(), {:id => 'link_local_file'} %></dd>
+
+	<dt>Citation/comments :</dt>
+	<dd><%= @document[:note_t].to_s %></dd>
+
+	<dt>Copyright :</dt>
+	<dd><%= @document[:copyrightStatus_t].to_s %> <%= @document[:copyrightDate_t].to_s %></dd>
+
+  <dt>Copyright permission :</dt>
+  <dd>
+    <%= render :partial => 'eems/_detail_partials/permission_files', :locals => {:readOnly => true} %>
+  </dd>
+
+	<dt>Purchase :</dt>
+	<dd><%= @document[:paymentType_t].to_s %> <%= @document[:paymentFund_t].to_s %></dd>            
+</dl>

@@ -1,0 +1,231 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body, html, textarea {
+  font-family: "lucida grande",tahoma,Arial,Helvetica,sans-serif;
+  font-size: 11px;
+  line-height: 1.6;    
+}
+
+
+input, textarea, select, form, dl, dt, dd, textarea {
+  font-family: "lucida grande",tahoma,Arial,Helvetica,sans-serif;
+  font-size: 11px;
+  line-height: 1.6;    
+}
+
+#logo {
+  position: absolute;
+  background: transparent url('/images/sulair.png') no-repeat;
+  top: 5px;
+  left: 15px;
+  height: 32px;
+  width: 140px;
+}
+
+#eems-popup-header {
+	border-bottom: 1px dotted #bbb; 
+	color: #333;
+	font-weight: bold;
+	margin: 4px 8px;
+	padding: 5px; 
+	text-decoration: none;
+}
+
+#eems-popup-links {
+	background-color: transparent;
+	border-width: 0; 
+	padding: 4px; 
+	position: absolute; 
+	right: 10px; 
+	margin-right: 15px;
+	top: 7px; 
+}
+
+#eems-popup-links a, #eems-popup-links a:link {
+	color: #770000;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+#eems-browser-widget textarea, #eems-desktop-widget textarea {
+  border: 1px solid #999;
+  background-color: #fff;
+  color: #555;
+}
+
+#eems-browser-widget, #eems-desktop-widget {
+  border: 0px solid #ccc;
+  height: 420px;
+  overflow: auto;
+  padding: 10px;
+  width: 420px;
+}
+
+#eems-browser-widget dt, #eems-desktop-widget dt {
+  clear: left;
+  float: left;
+  padding: 4px 8px 4px 0;
+  width: 110px;
+  text-align: right;
+  color: #555; 
+}
+
+#eems-widget-tabs {
+	padding-top: 10px;
+	margin: 0 10px;
+}
+
+#eems-widget-tabs-border-bottom {
+	border-top: 1px solid #aaa; 
+	clear: both; 
+	height: 1px; 
+	margin-top: 2px;
+}
+
+#eems-widget-tabs a, #eems-widget-tabs a:link {
+	color: #333;
+	outline: none;
+	text-decoration: none;
+	margin-left: 10px;
+}
+
+.eems-widget-tab-active {
+	background: #fff url('/images/widget_tab_bg.png') repeat-x top left;	
+	border-left: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+	padding: 5px 10px;
+}
+
+.eems-widget-tab-inactive {
+	background-image: none;
+	border-left: 0px solid #aaa;
+	border-right: 0px solid #aaa;
+	padding: 4px 8px;	
+}
+
+#eems-progress-bar-box {
+  background-color: #aaa; 
+  float: left;
+  height: 10px; 
+  margin-top: 4px;
+  width: 300px; 
+}
+
+#eems-progress-bar {
+	height: 10px;	
+	width: 0px; 
+}
+
+#eems-percent-done {
+	float: left; 
+	text-align: left; 
+	text-indent: 3px;
+	width: 40px; 
+}
+
+#eems-browser-widget dd, #eems-desktop-widget dd {
+  float: left;
+  margin: 0;
+  padding: 4px 0;
+}
+
+#submit-buttons {
+  clear: both;
+  padding: 25px 5px 0 0;
+  text-align: right;
+}
+
+#eems-loader {
+	background: transparent url('/images/h_loading.gif') no-repeat center center;
+	height: 50px;
+  margin: 60px auto 0 auto;
+  text-align: center;
+	width: 350px;
+}
+
+#eems-success {
+  margin: 60px auto 0 auto;
+  text-align: center;
+	width: 350px;
+}
+
+#eems-error {
+  margin: 40px auto 0 auto;
+  text-align: center;
+  width: 350px;
+}
+
+.errorMsg, .errorMsgPDF {
+	background: transparent url('/images/error.png') no-repeat left 0;
+	padding: 2px 0 2px 25px;
+}
+
+.errorMsgPDF {
+	text-align: left;
+}
+
+.errorMsgPDF li {
+	padding-bottom: 5px;
+}
+
+#eems-upload-progress {
+  width: 350px;
+  padding: 60px 0 0 0;	
+  margin: 0 auto;
+}
+
+#eems-links {
+  text-align: center;	
+  clear: left;
+  width: 350px;
+  padding: 60px 0 0 0;	
+  margin: 0 auto;
+}
+
+#details-link {
+	font-weight: bold;
+}
+
+#eems-links a, #eems-links a:link, #eems-error a, #eems-error a:link {
+  color: #770000;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.marginLeft_14px {
+  margin-left: 14px;	
+}
+
+#eem_copyrightStatus {
+  width: 170px;	
+}
+
+#not-authorized {
+	margin:70px 0 0 25px;
+	text-align:left;
+	width: 600px;
+}
+
+#not-authorized h1 {
+  font-size: 1.4em;	
+}
+
+#not-authorized h2 {
+  font-size: 1.2em;	
+}

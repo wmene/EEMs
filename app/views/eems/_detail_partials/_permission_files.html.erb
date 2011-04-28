@@ -1,0 +1,32 @@
+<% 
+  pfiles = @eem.permission_files
+%>
+
+<ul id="list_permission_files">
+<% for pfile in pfiles %>
+  <% if !pfile.nil? %>
+	  <%
+	    file_name = pfile.datastreams['properties'].file_name_values.first  
+	    file_path = File.join(Sulair::WORKSPACE_URL, @eem.pid, file_name)	    
+	    comment = pfile.datastreams['properties'].comment_values.first 
+	    uniq_id = pfile.pid.gsub('druid:', '')
+	  %>
+
+	  <% if !file_name.nil? && !file_name.empty? %>
+	    <li>
+		  <%= link_to "#{file_name}", "#{file_path}", :title => "#{file_name}" %>
+
+			<% if !comment.nil? && !comment.empty? %>
+			  (<%= comment %>)
+			<% end %>
+
+      <% if !readOnly.nil? && !readOnly %> 
+				<%= link_to '[delete]', '#', :onclick => "javascript:deletePermissionFile('#{@eem.pid}', '#{pfile.pid}')", :id => "delete_#{uniq_id}", :class => 'delete_permission_file_link', :title => "Delete #{file_name}" %>
+	      <%= image_tag '/images/c_loader.gif', :id => "loader_#{uniq_id}", :class => 'c_loader', :style => 'display: none;' %>
+      <% end %>
+      </li>			
+	  <% end %>
+	
+	<% end %>
+<% end %>
+</ul>

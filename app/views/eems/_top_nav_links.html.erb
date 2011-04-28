@@ -1,0 +1,15 @@
+<%
+  @user = EemsUser.load_from_session(session)
+  widget_name = WIDGET_NAME || 'EEMs Widget'
+%>
+
+<div id="topNavLinks">
+  <%= @user.display_name %> | 
+  <%= link_to 'Help', 'https://consul.stanford.edu/display/EEMs4all/Home', :title => 'Help', :target => '_blank' %> |  
+  <%= mail_to 'eems-feedback@lists.stanford.edu', 'Feedback' %> | 
+  <%= link_to 'Logout', 'https://weblogin.stanford.edu/logout', :title => 'Logout' %>
+</div>      
+
+<script type="text/javascript">
+  var widget_name = '<%= widget_name %>';
+</script>

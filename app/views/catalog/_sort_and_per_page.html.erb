@@ -1,0 +1,13 @@
+<div id="sortAndPerPage">
+	
+	<% form_tag catalog_index_path, :method=>:get, :class=>'per_page' do %>
+		<%= label_tag(:per_page, "Show " + select_tag(:per_page, options_for_select(['10', '20', '50', '100'], h(params[:per_page])), :title => "Number of results to display per page", :onchange => 'this.form.submit()') + " per page") %>
+		<%= hidden_field_tag :q, params[:q], :id => 'per_page_q' %>
+		<%= hidden_field_tag(:qt, params[:qt], :id => 'per_page_qt') %>
+		<%= hidden_field_tag(:sort, params[:sort], :id => 'per_page_sort') %>
+		<%= render 'catalog/hidden_filters' %>
+		<noscript><%= submit_tag 'update' %></noscript>
+	<% end %>
+
+	<h2 id="results_label">Click on column headers to sort</h2>
+</div>

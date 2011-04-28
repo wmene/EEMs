@@ -1,0 +1,51 @@
+<% form_tag('/eems', :method => 'post', :id => 'eems-desktop-widget', :name => 'desktop_widget', :enctype => 'multipart/form-data', :target =>"upload_target", :style => "display: none;") do %>
+  <%= hidden_field_tag 'eem[selectorSunetid]', "#{@user.sunetid}"%>
+  <%= hidden_field_tag 'eem[selectorName]', "#{@user.display_name}"%>   
+  <%= hidden_field_tag 'authenticity_token', "#{form_authenticity_token}", :id => 'authenticity_token' %>
+  <%= hidden_field_tag 'eem[statusDatetime]', '', :id => 'eem_dw_statusDatetime' %>
+  <%= hidden_field_tag 'eem[copyrightStatusDate]', '', :id => 'eem_dw_copyrightStatusDate' %>
+  <%= hidden_field_tag 'eem[requestDatetime]', '', :id => 'eem_dw_requestDatetime' %>
+  <%= hidden_field_tag 'eem[status]', 'Created', :id => 'eem_dw_status' %>		
+
+  <dl>
+    <dt><%= label_tag 'eem[sourceUrl]', 'Found on this site:' %></dt>
+    <dd style="overflow: hidden;"><%= eems_text_field_tag :sourceUrl, '', {:size => 41, :name => 'eem[sourceUrl]', :id => 'eem_dw_sourceUrl'} %></dd>
+
+    <dt style="width: 325px">Language:</dt>
+    <dd><%= render :partial => 'eems/select_options', :locals => {:field => 'language', :id => 'eem_dw_language', :selected => 'eng'} %></dd>
+
+    <dt><%= label_tag 'eem[title]', 'Title of work:' %></dt>
+    <dd><%= eems_text_field_tag :title, '', {:size => 41, :id => 'eem_dw_title'} %></dd>
+
+    <dt><%= label_tag 'eem[creatorName]', 'Author:' %></dt>
+    <dd>
+      <%= eems_text_field_tag :creatorName, '', {:size => 24, :id => 'eem_dw_creatorName'} %> &nbsp; 
+      <%= render :partial => 'eems/select_options', :locals => {:field => 'creatorType', :id => 'eem_dw_creatorType', :selected => ''} %>
+    </dd>
+
+    <dt><%= label_tag 'content_upload', 'File:' %></dt>
+    <dd>
+      <%= file_field '', '', {:size => 31, :id => 'content_upload', :name => 'content_upload'} %>
+		</dd>
+
+    <dt style="width: 0px"></dt>
+    <dd><%= text_area_tag 'eem[note]', '(Citation, comments, copyright notes, etc.)', :id => 'eem_dw_note', :rows => 5, :cols => 56 %></dd>
+
+    <dt><%= label_tag 'eem[copyrightStatus]', 'Copyright:' %></dt>
+    <dd>
+      <%= render :partial => 'eems/select_options', :locals => {:field => 'copyrightStatusWidget', :name => 'copyrightStatus', :id => 'eem_dw_copyrightStatus', :selected => 'Requires request'} %>
+    </dd>
+
+    <dt><%= label_tag 'eem[paymentType]', 'Purchase:' %></dt>
+    <dd>
+      <%= render :partial => 'eems/select_options', :locals => {:field => 'paymentType', :id => 'eem_dw_paymentType', :selected => ''} %>      
+      <%= eems_text_field_tag :paymentFund, '(Fund name)', {:size => 25, :id => 'eem_dw_payment_fund', :class => 'marginLeft_14px', :style => 'display: none;'} %>         
+    </dd>
+  </dl>
+
+  <div id="submit-buttons">
+		<input type="button" disabled="disabled" id="eem_dw_send_to_tech_services" value="Send to Technical Services">
+		<input type="button" disabled="disabled" id="eem_dw_save_to_dashboard" value="Save to dashboard">
+  </div>		
+
+<% end %>

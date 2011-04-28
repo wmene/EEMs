@@ -1,0 +1,46 @@
+<% 
+  list_options = {
+    'language' => [
+      {'ara' => 'Arabic'}, {'chi' => 'Chinese'}, {'eng' => 'English'}, {'fre' => 'French'}, 
+      {'ger' => 'German'}, {'heb' => 'Hebrew'}, {'ita' => 'Italian'}, {'jpn' => 'Japanese'}, 
+      {'kor' => 'Korean'}, {'rus' => 'Russian'}, {'spa' => 'Spanish'}, {'|||' => 'Other'}
+    ],
+    'creatorType' => [
+      {'organization' => 'organization'}, {'person' => 'person'}    
+    ],  
+    'copyrightStatusWidget' => [
+      {'Public access OK' => 'Public access OK'},  
+      {'Stanford access OK' => 'Stanford access OK'},  
+      {'Requires request' => 'Requires request'} 
+    ],
+    'copyrightStatusDetailPage' => [
+      {'Public access OK' => 'Public access OK'},  
+      {'Stanford access OK' => 'Stanford access OK'},  
+      {'Requires request' => 'Requires request'},   
+      {'Request sent' => 'Request sent'},   
+      {'Permission denied' => 'Permission denied'},   
+      {'No response received' => 'No response received'}  
+    ],
+    'paymentType' => [
+      {'Free' => 'Free'},  
+      {'Paid' => 'On fund...'}
+    ]
+  }
+  
+  id = field if id.nil?
+  name = field if name.nil?
+%>
+
+<select name="eem[<%= name %>]" id="<%= id %>">
+    
+<% list_options["#{field.to_s}"].each { |status| %>
+  <% status.each { |value, label| %>    
+    <% if (selected == value) %>
+      <option value="<%= value %>" selected="selected"><%= label %></option>
+    <% else %>   
+      <option value="<%= value %>"><%= label %></option>
+    <% end %> 
+  <% } %>    
+<% } %>
+
+</select>

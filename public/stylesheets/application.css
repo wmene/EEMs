@@ -1,0 +1,333 @@
+/* ------- blacklight ------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+	
+body {
+  background: #f6f2e6 url('/images/bgTopBar_1x48.png') repeat-x;
+  line-height: 1.6;
+  padding-top: 58px;
+  font-family: "lucida grande",tahoma,Arial,Helvetica,sans-serif;
+  color: #000;
+}
+
+body, html, textarea {
+  font-family: "lucida grande",tahoma,Arial,Helvetica,sans-serif;
+  font-size: 11px;
+  line-height: 1.6;    
+}
+
+input, textarea, select, form, dl, dt, dd, textarea {
+  font-family: "lucida grande",tahoma,Arial,Helvetica,sans-serif;
+  font-size: 11px;
+  line-height: 1.6;    
+}
+
+
+#logo {
+  position: absolute;
+  background: transparent url('/images/sulair.png') no-repeat;
+  top: 5px;
+  left: 15px;
+  height: 32px;
+  width: 140px;
+}
+
+#topNavLinks {
+  width: 920px;	
+  text-align: right;
+  padding: 0 5px 5px 0;
+  overflow: auto;	
+  margin: 0 auto;
+}
+
+#hd {border-bottom: 0px dotted #ccc;}
+
+#documents { background-color: #fff; }
+a:link, a:visited, a:active {border-bottom: 0px dotted #aaa; color: #2e4f81; }
+#sortAndPerPage { background-color: #fff;}
+
+.yui-t2 {  	
+  background-image: none; 
+  width: 1024px;
+  background-color: #fff;
+  border: 1px solid #cdccc8;
+  margin: 0px auto;  
+}
+
+.yui-t2 #yui-main .yui-b { 
+  border-left-width: 0;
+}
+
+table#searchResults {
+  margin: 10px 0 0 0;
+  border: 1px solid #aaa;
+  width: 100%;	  
+}
+
+table#searchResults td {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+table#searchResults tr#searchResultsHeader {
+  background-color: #ddd;
+  border-bottom: 1px solid #ccc;
+}
+
+table#searchResults tr.searchResultsRow1 {
+  background-color: #f3f3f3;
+}
+
+table#searchResults tr.searchResultsRow2 {
+  background-color: #fcfcfc;
+}
+
+.searchResultsDropDown { width: 15px; }
+.searchResultsTitle { width: 200px; }
+
+.searchResultsHdrSortAsc, .searchResultsHdrSortDesc {
+  background: #555 url('/images/icon_dashboard_sort_asc.png') right center no-repeat ;
+  border: 1px solid #555;
+  color: #fff;
+  cursor: pointer;
+}
+
+.searchResultsHdrSortDesc {
+	background-image: url('/images/icon_dashboard_sort_desc.png');
+}
+
+.widget_button {
+	border: 0;
+	margin: 5px 0 0 0;
+}
+
+/* details page */
+#details_container {
+  margin: -50px 0 0 -230px;	
+  width: 870px;
+  padding: 10px;
+}
+
+h1.mainTitle {
+  position: relative;
+  top: 0;
+  font-size: 1.8em;
+  font-weight: normal;
+  margin: 2px 0;
+  color: #9b0100;
+}
+
+input#input_title {
+	width: 500px;
+}
+
+input#input_linkUrl {
+	width: 300px;
+}
+
+#text_linkUrl {
+	cursor: pointer;
+	display: inline;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 2px 0;
+  color: #999;	
+}
+
+
+dl.details, dl.actionLog {
+  padding: 10px 0;
+  overflow: auto;
+} 
+
+dl.details dt, dl.actionLog dt {
+  color: #58535A;
+  clear: both;
+  float: left;
+  margin-right: 10px;
+  text-align: right;
+  width: 140px;  
+  padding: 4px 0;
+} 
+  
+dl.details dd, dl.actionLog dd {
+  float: left;
+  width: 390px;
+  padding: 4px 0;
+}
+
+dl.actionLog {
+	padding: 0;
+}
+
+dl.actionLog dt, dl.actionLog dd {
+	padding: 2px 0;
+}
+
+ul#acquisitions_actions {
+  padding: 5px 0;	
+}
+
+ul#acquisitions_actions li {
+  padding: 4px 0;	
+  list-style: none;
+}
+
+ul#acquisitions_actions textarea {
+  height: auto;
+  width: auto;	
+  margin-bottom: 4px;
+}
+
+.action_box_show {
+  background: transparent url('/images/icon_list_show.png') no-repeat left center;
+  padding-left: 14px;
+}
+
+.action_box_hide {
+  background: transparent url('/images/icon_list_hide.png') no-repeat left center;
+  padding-left: 14px;
+}
+
+.comment_formlet {
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  overflow: auto;
+  padding: 5px;
+  display: none;	
+}
+
+#formlet_upload_copyright_attachment dl {
+	margin: 5px 0 10px 0;
+}
+
+#formlet_upload_copyright_attachment label {
+	color: #555;
+	font-weight: normal;
+}
+
+#formlet_upload_copyright_attachment dd {
+	margin-left: 0;
+}
+
+div.startover_link {
+	float: left; 
+	margin: 0 0 20px 10px;
+	width: 270px; 
+}
+
+div#action_log {
+  float: left;
+  margin: 6px 0 0 0;
+  border-top: 1px solid #ccc;
+  padding-top: 4px;
+}
+
+.sidebar_button {
+  background-color: #eee;
+  border: 1px solid #aaa;	
+  margin-right: 5px;
+  padding: 1px 5px;		
+}
+
+a.edit_link, a.sidebar_button {
+  overflow: auto;	
+  color: #333;
+  cursor: pointer;	
+  text-decoration: none	;	
+}
+
+.mainTitle {
+  position: relative;
+  top: 0;
+  font-size: 1.8em;
+  font-weight: normal;
+  margin: 2px 0;
+  color: #9b0100;
+}
+
+#text_creatorName {
+  border: 1px solid #fff;	
+  margin-right: 10px;
+  width: 300px;	
+  display: inline;
+}
+
+#text_note {
+  border: 1px solid #fff;	
+}
+
+#text_creatorName:hover, #text_note:hover {	
+  background-color: #ffffcc;	
+  border: 1px solid #eee;
+  cursor: pointer;  	
+}
+
+#text_title:hover {
+  cursor: pointer;  		
+}
+
+#eem_copyrightStatus {
+  width: 200px;	
+}
+
+.text_placeholder {
+  color: #555;
+  font-style: italic;	
+}
+
+.marginLeft_14px {
+  margin-left: 14px;	
+}
+
+.input_payment_fund {
+  margin-left: 14px;	
+  text-align: left;	
+}
+
+.log_comment {
+	clear: both;
+	padding: 2px 0;
+	color: #555;
+	font-style: italic;
+}
+
+.c_loader {
+	border: 0; 
+	margin: 0 4px -2px 0;
+}
+
+ul#list_permission_files {
+  margin: 0;
+  padding: 0;	
+}
+
+ul#list_permission_files li {
+	padding: 0; 
+	margin: 0 0 0 15px;
+}
+
+a.delete_permission_file_link, a:link.delete_permission_file_link {
+	color: #bb0000;
+}

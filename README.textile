@@ -1,0 +1,67 @@
+
+h1. EEMs - Everyday Electronic Materials
+
+A pre-Hydra, ActiveFedora/Blacklight Ruby on Rails application
+
+h2. Installation
+
+h3. Prerequisites
+
+* rvm with MRI 1.8.7
+* bundler
+* packages and header files in order to build the following gems
+** curb - needs curl and curl header files
+** nokogiri - libxml2
+* Fedora
+* Solr
+
+
+h3. Instructions to get development instance running
+
+* source the .rvmrc - It will create an rvm gemset _1.8.7@eems_, you can change this if you want
+** @$ source .rvmrc@
+* Use bundler to install gems - install any missing packages if needed
+** @$ bundle install@
+* Point to your Fedora instance: modify the *FEDORA_URL* constant in @conf/environments/development.rb@
+* Point to your Solr instance: modify @config/solr.yml@ and @config/initializers/fedora_repository.rb@
+* Copy @solr/schema.xml@ and @solr/solrconfig.xml@ to *$SOLR_HOME/conf*
+* Create the development sqlite database
+** @$ rake db:migrate@
+* Create the test sqlite database
+** @$ rake db:test:clone@
+* Make sure all the tests pass
+** @$ rake spec@
+* Start delayed_job
+** @$ startjob.sh development@
+* Start the app
+** @$ script/server@
+
+h2. Typical Use Case
+
+h3. Create an Eem using the browser widget to point to the URL of a pdf
+
+* Login to the app by opening http://localhost:3000 in your browser
+* Create bookmark/browser button by dragging the "EEMs-dev Widget" button to your browser's bookmark toolbar
+* Navigate to a web page with a freely downloadable pdf, not behind a password.  e.g. http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm
+* Click the "EEMs Widget" browser button
+* Fill in details.  In particular, drag the link for "1-column for viewing online" to the "Direct link to file:" input field.  The widget should populate the input field with the URL to the PDF
+* Click "Send to Dashboard"
+
+You should now see a facet with your username in the Selector facet.  You can drill down to the details of the Eem you created.  The Eem is editable until the "Send to Technical Services" Action link is clicked.  This should kick off background accessioning of the Eem. 
+
+h2. High-level Code Overview during EEMs creation
+
+* An EemsUser is created and 'logged-in' via ApplicationController#set_current_user.  For demonstration purposes, it is naively creating an eems_demo_user.  You should replace/rewrite this method with your with institution specific authorization/authentication scheme
+* The browser widget is rendered from @public/javascripts/browser-widget-dialog.js@
+* Clicking the Send or Save buttons in the browser widget POSTs a json request with the form data to EemsController#create
+* EemsController#create 
+** Creates Eem and Part objects in Fedora
+** Creates a ContentFile object to temporarily keep track of pdf download progress.
+** Creates a Dor::DownloadJob object which does the work of fetching the pdf from the specified url using the curb gem on the server side.  
+* DelayedJob then calls the Dor::DownloadJob#perform method to do the work in the backgroud.  It updates download progress via ContentFile#update_progress
+* The widget displays download progress by calling ContentController#show, passing the id of the ContentFile
+* When the download finishes, a content datastream is created on the Part object, pointing to the downloaded pdf, logged to the ActionLog datastream in the Eem object.
+
+
+
+

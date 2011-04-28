@@ -1,0 +1,46 @@
+<% form_tag({:action => :create}, :id => 'eems-browser-widget', :name => 'browser_widget') do %>
+  <%= hidden_field_tag 'eem[selectorSunetid]', "#{@user.sunetid}"%>
+  <%= hidden_field_tag 'eem[selectorName]', "#{@user.display_name}"%>   
+  
+  <dl>
+    <dt id="dt_sourceUrl"><%= label_tag 'eem[sourceUrl]', 'Found on this site:' %></dt>
+    <dd style="overflow: hidden;"><%= render :partial => 'eems/source_url' %></dd>
+
+    <dt style="width: 325px">Language:</dt>
+    <dd><%= render :partial => 'eems/select_options', :locals => {:field => 'language', :id => 'eem_bw_language', :selected => 'eng'} %></dd>
+    
+    <dt><%= label_tag 'eem[title]', 'Title of work:' %></dt>
+    <dd><%= eems_text_field_tag :title, '', {:size => 41, :id => 'eem_bw_title'} %></dd>
+
+    <dt><%= label_tag 'eem[creatorName]', 'Author:' %></dt>
+    <dd>
+      <%= eems_text_field_tag :creatorName, '', {:size => 24, :id => 'eem_bw_creatorName'} %> &nbsp; 
+      <%= render :partial => 'eems/select_options', :locals => {:field => 'creatorType', :id => 'eem_bw_creatorType',  :selected => ''} %>
+    </dd>
+
+    <dt><%= label_tag 'contentUrl', 'Direct link to file:' %></dt>
+    <dd>
+      <%= text_field_tag :contentUrl, '', {:size => 41, :name => 'contentUrl', :id => 'contentUrl'} %> <br/>
+      <span style="color:#555;">&uarr; Drag and drop the link of the file you want to capture</span>
+	  </dd>
+
+    <dt style="width: 0px"></dt>
+    <dd><%= text_area_tag 'eem[note]', '(Citation, comments, copyright notes, etc.)', :id => 'eem_bw_note', :rows => 5, :cols => 56 %></dd>
+
+    <dt><%= label_tag 'eem[copyrightStatus]', 'Copyright:' %></dt>
+    <dd>
+      <%= render :partial => 'eems/select_options', :locals => {:field => 'copyrightStatusWidget', :name => 'copyrightStatus', :id => 'eem_bw_copyrightStatus', :selected => 'Requires request'} %>
+    </dd>
+
+    <dt><%= label_tag 'eem[paymentType]', 'Purchase:' %></dt>
+    <dd>
+      <%= render :partial => 'eems/select_options', :locals => {:field => 'paymentType', :id => 'eem_bw_paymentType', :selected => ''} %>      
+      <%= eems_text_field_tag :paymentFund, '(Fund name)', {:size => 25, :id => 'eem_bw_payment_fund', :class => 'marginLeft_14px', :style => 'display: none;'} %>         
+    </dd>
+  </dl>
+
+  <div id="submit-buttons">
+		<input type="button" disabled="disabled" id="eem_bw_send_to_tech_services" value="Send to Technical Services">
+		<input type="button" disabled="disabled" id="eem_bw_save_to_dashboard" value="Save to dashboard">
+  </div>
+<% end %>

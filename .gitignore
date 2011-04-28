@@ -1,0 +1,9 @@
+log/*.log
+tmp/*
+db/*.sqlite3
+coverage/*
+coverage.data
+public/workspace/*
+public/workspace
+workspace/*
+.bundle

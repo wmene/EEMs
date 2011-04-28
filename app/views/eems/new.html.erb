@@ -1,0 +1,40 @@
+<%
+  widget_suffix = WIDGET_SUFFIX || ''
+%>
+
+<div id="eems-popup-header">
+	EEMs<%= widget_suffix %> Selection Widget
+	<div id="eems-popup-links">
+	<%= link_to 'Help', 'https://consul.stanford.edu/display/EEMs4all/Home', :target => 'blank' %>	| 
+	<%= mail_to 'eems-feedback@lists.stanford.edu', 'Feedback' %>
+	</div>
+</div>	
+
+<div id="eems-widget-tabs">
+	<%= link_to "Capture from this site", "#", :id => "eems-browser-widget-toggle" %>
+	<%= link_to "Upload from desktop", "#", :id => "eems-desktop-widget-toggle" %>
+	<div id="eems-widget-tabs-border-bottom">
+</div>
+
+<%= render :partial => 'eems/_widgets/browser_widget' %>
+<%= render :partial => 'eems/_widgets/desktop_widget' %>
+
+<div id="upload_target" name="upload_target" style="display:none;"></div>
+<div id="eems-success" style="display: none;">Your request has been submitted.</div>
+<div id="eems-loader" style="display: none;">Please wait...</div>
+<div id="eems-error" style="display: none;"></div>
+
+<div id="eems-upload-progress" style="display: none;">
+  <div id="upload-progress-text">Your selection is being uploaded... </div>
+  <div id="upload-complete-text" style="display:none;">Upload complete!</div>
+  <div id="eems-progress-bar-box">
+	  <%= image_tag "../images/progress_bar.png", :id => "eems-progress-bar" %>
+  </div>      
+  <div id="eems-percent-done"></div>      
+</div>
+
+<div id="eems-links" style="display: none;">
+	<%= link_to "View details", "", :id => "details-link", :target => "_blank" %> <br/><br/>
+	<%= link_to "View dashboard", "/view", :target => "_blank"  %> &nbsp; | &nbsp; 
+	<%= link_to "Select another EEM", "/eems/new?referrer=" + get_source_url(params[:referrer]), :id => "select-another-eem"  %>
+</div>

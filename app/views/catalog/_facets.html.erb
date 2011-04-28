@@ -1,0 +1,42 @@
+<% unless params[:q].blank? and params[:f].blank? %>
+  <div class="startover_link">
+    &laquo; <%= link_to "Start Over", :controller => "catalog", :action => "index" %>    
+  </div>
+<% end %>
+
+<% # main container for facets/limits menu -%>
+<div id="facets">
+  <h2>Filter by</h2>
+  <% facet_field_names.each do |solr_fname| %>
+
+    <div>
+      <% display_facet = @response.facets.detect {|f| f.name == solr_fname} -%>
+
+      <% if display_facet.items.length > 0 %>
+        <h3><%= facet_field_labels[solr_fname] -%></h3>
+        <ul>
+        <% display_facet.items.each do |item| -%>
+
+          <% if !item.value.empty? %> 
+            <% display_value = get_facet_display_value(solr_fname, h(item.value)) %>
+
+            <% if facet_in_params? solr_fname, item.value %>
+              <li>
+                <span class="selected"><%= display_value %> (<%= format_num item.hits %>)</span>
+                [<%= link_to 'remove', remove_facet_params(solr_fname, item.value, params), :class=>'remove' %>]
+              </li>
+            <% else %>
+              <li>
+                <%= link_to display_value, add_facet_params(solr_fname, item.value) %> (<%= format_num item.hits %>)
+              </li>
+            <% end %>
+
+          <% end %>
+
+        <% end %>
+        </ul>
+
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+
+<% # container for all documents in index view -%>
+<div id="documents">
+
+<table id="searchResults">
+  <tr id="searchResultsHeader">    
+    <% index_field_names.each do |solr_fname| -%>
+      <% sort_params = get_sort_params(solr_fname) %>
+
+      <td class="<%= sort_params[1] %>">
+        <%= h index_field_labels[solr_fname]%>
+    		<% form_tag catalog_index_path, :method=>:get do %>
+    			<%= hidden_field_tag :sort, sort_params[0], :id => 'sort' %>
+    			<%= hidden_field_tag :q,  params[:q], :id => 'sort_q' %>
+    			<%= hidden_field_tag(:qt, params[:qt], :id => 'sort_qt') %>
+    			<%= hidden_field_tag(:per_page, params[:per_page], :id => 'sort_per_page') %>
+    			<%= render 'catalog/hidden_filters' %>
+    			<noscript><%= submit_tag 'sort results' %></noscript>
+    		<% end %>
+      </td>  
+    <% end -%>      
+  </tr>
+    
+  <% # loop thru each doc -%>
+  <% @document_list.each_with_index do |document, counter| %>
+    <% rowBgColor = (counter % 2) == 1 ? "searchResultsRow1" : "searchResultsRow2" %>
+    <tr class="<%= rowBgColor %>">                
+      <% # main container for doc partial view -%>
+      <%= render_document_partial document, :index %>
+    </tr>
+  <% end %>
+</table>
+
+</div>

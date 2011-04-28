@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title><%= h(@page_title || application_name) %></title>
+    <link href="<%= url_for :controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
+    <%= render_js_includes %>
+    <%= render_stylesheet_includes %>
+    <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+    <%= stylesheet_link_tag 'application', 'jquery.autocomplete' %>
+    <%= javascript_include_tag 'eems_common', 'eems_detail_actions', 'jquery.autocomplete', 'date.format' %>    
+  </head>
+  <% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
+    <body onload="$('input#q').focus();">
+  <% else %>
+    <body>
+  <% end %>
+  <div id="logo"></div>
+  <%= render :partial => 'eems/top_nav_links' %>    
+  <div id="doc4" class="yui-t2">
+
+      <div id="hd">
+          <div class="yui-g">
+              <div class="yui-u first">
+              </div>
+          </div>
+      </div>
+
+      <div id="bd">
+
+          <div id="yui-main">
+              <div class="yui-b">
+                  <%= yield %>
+              </div>
+          </div>
+
+          <div class="yui-b"><%= sidebar_items.join('') %></div>
+
+      </div>
+
+      <div id="ft"></div>
+
+  </div>
+  <div id="lightboxContainer" style="display:none;">
+  </div>
+  </body>
+  
+</html>

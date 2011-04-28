@@ -1,0 +1,93 @@
+<div id="details_container">
+  <div style="width: 100%; border-bottom: 1px solid #ccc; padding: 4px 0; overflow: auto;">
+    <div style="width: 270px; float: left; margin: 5px 0;">
+	    &laquo; <%= link_to "Start Over", :controller => "catalog", :action => "index" %> <br/>   
+      &laquo; <%= link_back_to_catalog(opts={:label=>'Back to search result'}) %>    
+    </div>          
+    <div style="float: left; padding-top: 18px;">
+      <%= render 'previous_next_doc' %>
+    </div>          
+  </div>      
+  <div style="width: 250px; float: left; padding: 0 5px; margin: 10px 0; overflow: auto;">
+      <h3>Status</h3> 
+      <%= print_eems_field('status') %><br/><br/>
+
+      <h3>Actions</h3> 
+      <ul id="acquisitions_actions">
+			  <% if is_eem_editable(print_eems_field('status')) %>
+	        <li>
+	          <%= link_to 'Send to Technical Services',  '#', {:id => 'link_send_to_tech_services', :class => 'action_box_show'} %> 
+	          <div class="comment_formlet" id="formlet_send_to_tech_services">
+	            <textarea id="text_send_to_acquistions" rows="5" cols="28" disabled="disabled"></textarea>
+	            <div style="text-align: right; padding-right: 8px;">
+		    	      <input type="button" disabled="disabled" id="send_to_tech_services_ok" value="Send">
+	              <%= link_to 'Cancel', '#', :id => 'send_to_tech_services_cancel' %>
+	            </div>
+	          </div>    
+	        </li>    
+        <% end %>
+
+			  <% if !is_eem_canceled(print_eems_field('status')) %>
+	        <li>
+	          <%= link_to 'Cancel this request',  '#', {:id => 'link_cancel_this_request', :class => 'action_box_show'} %> 
+	          <div class="comment_formlet" id="formlet_cancel_this_request">
+	            <textarea id="text_cancel_this_request" rows="5" cols="28"></textarea>
+	            <div style="text-align: right; padding-right: 8px;">
+		    	      <input type="button" id="cancel_this_request_ok" value="Confirm">
+	              <%= link_to 'Cancel', '#', :id => 'cancel_this_request_cancel' %>
+	            </div>
+	          </div>    
+	        </li>    
+	      <% end %>
+
+	      <li>
+	        <%= link_to 'Upload copyright attachment',  '#', {:id => 'link_upload_copyright_attachment', :class => 'action_box_show'} %> 
+          <% form_tag("/eems/#{@eem.pid}/permission_files", :method => 'post', :enctype => 'multipart/form-data', :id => 'formlet_upload_copyright_attachment', :class => 'comment_formlet') do %>		
+		        <dl>
+			        <dt><%= label_tag 'permission_file_upload', 'Select file (.doc, .pdf, .txt, etc.)' %></dt>
+			        <dd><%= file_field '', '', {:size => 18, :id => 'permission_file_upload', :name => 'file'} %></dd>
+			        <dt><%= label_tag 'permission_desc', 'Description' %></dt>
+			        <dd><input type="text" size="28" style="width: auto;" id="comment" name="comment"></dd>
+			      </dl>
+	          <div style="text-align: right; padding: 0 8px 2px 0;">
+		          <%= image_tag '/images/c_loader.gif', :id => 'permission_files_upload_loader', :class => 'c_loader', :style => 'display: none;' %>
+	    	      <input type="button" disabled="disabled" id="upload_copyright_attachment_ok" value="Upload">
+	            <%= link_to 'Cancel', '#', :id => 'upload_copyright_attachment_cancel' %>
+	          </div>
+	        <% end %>    
+	      </li>    
+
+        <li>
+          <%= link_to 'Question/comment to selector',  '#', {:id => 'link_comment_to_selector', :class => 'action_box_show'} %> 
+          <div class="comment_formlet" id="formlet_comment_to_selector">
+            <textarea id="text_comment_to_selector" rows="5" cols="28"></textarea>
+            <div style="text-align: right; padding-right: 8px;">
+	    	      <input type="button" disabled="disabled" id="comment_to_selector_ok" value="Send">
+              <%= link_to 'Cancel', '#', :id => 'comment_to_selector_cancel' %>
+            </div>
+          </div>    
+        </li>    
+      </ul>      
+  </div>    
+
+  <div style="width: 580px; float: right; padding: 0 0 0 20px; margin: 10px 0; border-left: 1px solid #ccc; ">
+	  <% if is_eem_editable(print_eems_field('status')) %>
+	    <%= render :partial => 'eems/_detail_partials/editable' %>
+	  <% else %>
+	    <%= render :partial => 'catalog/_detail_partials/eem_readonly' %>
+	  <% end %>
+
+    <div id="action_log">  
+      <h3>Action log</h3>   
+	    <%= render :partial => 'eems/_detail_partials/action_log' %>
+    </div>      
+
+  </div>
+</div>
+
+<script type="text/javascript">
+	var status = '<%= print_eems_field('status') %>';
+	var selectorName = '<%= @user.display_name %>';
+</script>
+<%= javascript_tag "window._pid = '#{@eem.pid}'" %>    
+<%= javascript_tag "window._part_pid = '" + get_part_pid() + "'" %>    

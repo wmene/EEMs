@@ -1,0 +1,10 @@
+development:
+  url: http://127.0.0.1:8080/solr
+production:
+  url: http://127.0.0.1:8080/solr
+test:
+  url: http://127.0.0.1:8080/solr
+cucumber:
+  url: http://127.0.0.1:8888/solr
+culerity:
+  url: http://127.0.0.1:8888/solr

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  url: MyString
+  percent_done: 1
+  path: MyString
+
+two:
+  url: MyString
+  percent_done: 1
+  path: MyString

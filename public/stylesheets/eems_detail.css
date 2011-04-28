@@ -1,0 +1,192 @@
+body {
+  font-family: "lucida grande",tahoma,Arial,Helvetica,sans-serif;
+  font-size: 11px;	
+  background: #f6f2e6 url('/images/bgTopBar_1x48.png') repeat-x;
+  line-height: 1.6;
+}
+
+#logo {
+  position: absolute;
+  background: transparent url('/images/sulair.png') no-repeat;
+  top: 5px;
+  left: 15px;
+  height: 32px;
+  width: 140px;
+}
+
+.mainTitle {
+  position: relative;
+  top: 0;
+  font-size: 1.8em;
+  font-weight: normal;
+  margin: 2px 0;
+  color: #9b0100;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 2px 0;
+  color: #999;	
+}
+
+
+#container_view {
+  border: 0px solid #fff;
+  margin: 58px auto 20px auto;
+  top: 0;
+  width: 920px;
+  padding-bottom: 20px;
+}
+
+#sidebar, #actions {
+  background-color: #fff;
+  float: left;
+  padding: 0 10px;
+  width: 260px;
+}
+
+#userNameBox {
+  text-align: right;
+  padding: 0 5px 5px 0;
+  overflow: auto;	
+}
+
+#resultsBox {
+  overflow: auto;
+  background-color: #fff;	
+  border: 1px solid #cdccc8;
+  padding: 20px;
+}
+
+#results {
+  background-color: #fff;
+  border-left: 1px solid #cdccc8;
+  float: left;
+  padding: 0 20px;
+  width: 540px;
+}
+
+dl.details {
+  padding: 10px 0;
+  overflow: auto;
+} 
+  
+dl.details dt {
+  color: #58535A;
+  clear: both;
+  float: left;
+  margin-right: 10px;
+  text-align: right;
+  width: 140px;  
+  padding: 4px 0;
+} 
+  
+dl.details dd {
+  float: left;
+  width: 390px;
+  padding: 4px 0;
+}
+
+ul#acquisitions_actions {
+  padding: 5px 0 5px 15px;	
+}
+
+ul#acquisitions_actions li {
+  padding: 4px 0;	
+}
+
+ul#acquisitions_actions textarea {
+  margin-bottom: 4px;
+}
+
+.list_style_show {
+  list-style-image: url('/images/icon_list_show.png');			
+}
+
+.list_style_hide {
+  list-style-image: url('/images/icon_list_hide.png');			
+}
+
+.comment_formlet {
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  overflow: auto;
+  padding: 5px;
+  display: none;	
+}
+
+div#action_log {
+  /*float: clear;*/
+  margin: 10px 0 0 0;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.edit_link {
+  background: #eee url('/images/icon_edit_10x10.png') no-repeat 4px center;		
+  background-color: #eee;
+  border: 1px solid #aaa;	
+  margin-left: 10px;
+  padding: 1px 5px 1px 18px;	
+}
+
+.sidebar_button {
+  background-color: #eee;
+  border: 1px solid #aaa;	
+  margin-right: 5px;
+  padding: 1px 5px;		
+}
+
+.link_edit_icon {
+  background: #eee url('/images/icon_edit_10x10.png') no-repeat 4px center;		
+}
+
+.link_save_icon {
+  background: #eee url('/images/icon_save_10x10.png') no-repeat 4px center;		
+}
+
+a.edit_link, a.sidebar_button {
+  overflow: auto;	
+  color: #333;
+  cursor: pointer;	
+  text-decoration: none	;	
+}
+
+#text_creatorName {
+  border: 1px solid #fff;	
+  margin-right: 10px;
+  width: 300px;	
+  display: inline;
+}
+
+#text_note {
+  border: 1px solid #fff;	
+}
+
+#text_creatorName:hover, #text_note:hover {	
+  background-color: #ffffcc;	
+  border: 1px solid #eee;
+  cursor: pointer;  	
+}
+
+#text_title:hover {
+  cursor: pointer;  		
+}
+
+#eem_copyrightStatus {
+  width: 200px;	
+}
+
+.text_placeholder {
+  color: #555;
+  font-style: italic;	
+}
+
+.back_to_dashboard {
+  width: 100%; 
+  border-bottom: 1px solid #ccc; 
+  padding: 8px 6px; 
+  overflow: auto; 
+  margin: 5px 0;	
+}

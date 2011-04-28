@@ -1,0 +1,6 @@
+<% if !get_source_url(params[:referrer]).empty? %>
+  <%= shorten_url(get_source_url(params[:referrer])) %>
+  <%= hidden_field_tag 'eem[sourceUrl]', get_source_url(params[:referrer]), {:id => 'eem_bw_sourceUrl'} %>
+<% else %>
+  <%= eems_text_field_tag :sourceUrl, get_source_url(params[:referrer]), {:size => 41, :name => 'eem[sourceUrl]', :id => 'eem_bw_sourceUrl'} %>
+<% end %>

@@ -1,0 +1,108 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionmailer (2.3.10)
+      actionpack (= 2.3.10)
+    actionpack (2.3.10)
+      activesupport (= 2.3.10)
+      rack (~> 1.1.0)
+    active-fedora (1.2.8)
+      activeresource (< 3.0.0)
+      mime-types (>= 1.16)
+      multipart-post
+      nokogiri
+      om (>= 1.0)
+      solr-ruby (>= 0.0.6)
+      solrizer (>= 0.3.0)
+      xml-simple (>= 1.0.12)
+    activerecord (2.3.10)
+      activesupport (= 2.3.10)
+    activeresource (2.3.10)
+      activesupport (= 2.3.10)
+    activesupport (2.3.10)
+    authlogic (2.1.2)
+      activesupport
+    awesome_print (0.3.1)
+    builder (3.0.0)
+    cgi_multipart_eof_fix (2.5.0)
+    columnize (0.3.2)
+    curb (0.7.10)
+    daemons (1.1.0)
+    delayed_job (2.0.3)
+      daemons
+    facets (2.8.4)
+    fastthread (1.0.7)
+    gem_plugin (0.2.3)
+    json (1.4.6)
+    linecache (0.43)
+    marc (0.3.0)
+    mediashelf-loggable (0.4.0)
+    mime-types (1.16)
+    mongrel (1.1.5)
+      cgi_multipart_eof_fix (>= 2.4)
+      daemons (>= 1.0.3)
+      fastthread (>= 1.0.1)
+      gem_plugin (>= 0.2.3)
+    multipart-post (1.1.0)
+    nokogiri (1.4.3.1)
+    om (1.0.2)
+      facets
+      facets
+      nokogiri
+      nokogiri (>= 1.4.2)
+    rack (1.1.0)
+    rails (2.3.10)
+      actionmailer (= 2.3.10)
+      actionpack (= 2.3.10)
+      activerecord (= 2.3.10)
+      activeresource (= 2.3.10)
+      activesupport (= 2.3.10)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    rcov (0.9.9)
+    rsolr (0.12.1)
+      builder (>= 2.1.2)
+    rsolr-ext (0.12.0)
+      rsolr (>= 0.12.1)
+    rspec (1.3.1)
+    rspec-rails (1.3.3)
+      rack (>= 1.0.0)
+      rspec (= 1.3.1)
+    ruby-debug (0.10.4)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.4.0)
+    ruby-debug-base (0.10.4)
+      linecache (>= 0.3)
+    solr-ruby (0.0.8)
+    solrizer (0.3.2)
+      mediashelf-loggable
+      nokogiri
+      nokogiri
+      om
+      solr-ruby
+    sqlite3-ruby (1.2.5)
+    will_paginate (2.3.11)
+    xml-simple (1.0.13)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  active-fedora (= 1.2.8)
+  authlogic (= 2.1.2)
+  awesome_print
+  curb
+  delayed_job (= 2.0.3)
+  facets (= 2.8.4)
+  json
+  marc (= 0.3.0)
+  mongrel
+  rails (= 2.3.10)
+  rcov
+  rsolr (= 0.12.1)
+  rsolr-ext (= 0.12.0)
+  rspec (< 2.0)
+  rspec-rails (< 2.0)
+  ruby-debug
+  sqlite3-ruby (= 1.2.5)
+  will_paginate (= 2.3.11)
